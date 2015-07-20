@@ -25,6 +25,10 @@ How to use?
 * [wpshow on="safari] Show content only for Safari
 * Also you can combine options for example [wpshow on="desktop,tablet"] or [wpshow on="chrome,safari"]
 
+Body Classes
+------------
+Plugin also add automatically a class to body identify phone, tablet, browser-android, etc.
+
 Author
 ------
 Created by Miguel Manchego
