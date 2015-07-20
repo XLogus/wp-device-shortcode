@@ -6,8 +6,8 @@ Installation
 ------------
 * Download repository folder and upload to wp-content/plugins
 
-How to use?
-------------
+How to use shortcode?
+---------------------
 * After installation you can use shortcode [wpshow on="phone"]
 * [wpshow on="desktop"] Show content only for desktop
 * [wpshow on="mobile"] Show content only for phones and tablets
@@ -24,6 +24,25 @@ How to use?
 * [wpshow on="ie] Show content only for Internet Explorer
 * [wpshow on="safari] Show content only for Safari
 * Also you can combine options for example [wpshow on="desktop,tablet"] or [wpshow on="chrome,safari"]
+
+Is possible use as a function for themes development?
+-----------------------------------------------------
+The answer is YES, just active plugin and use the function wpds_showon() 
+```
+if(wpds_showon(array("desktop"))) {
+   // This content will be visible only on desktop
+} else {
+   // This content will be visible only on phones and tablets
+}
+```
+Also you can combine options
+```
+if(wpds_showon(array("desktop,tablet"))) {
+   // This content will be visible only on desktop and tablets
+} else {
+   // This content will be visible only on phones
+}
+```
 
 Body Classes
 ------------
