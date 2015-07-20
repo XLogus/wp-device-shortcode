@@ -1,8 +1,8 @@
 <?php 
 /*
 Plugin Name: WP Devices Shotcode
-Version: 1.0
-Plugin URI: http://miguelmanchego.com
+Version: 1.0 Beta
+Plugin URI: https://github.com/XLogus/wp-device-shortcode
 Description: A WordPress plugin based on the PHP Mobile Detect class (Original author Victor Stanciu now maintained by Serban Ghita) add shortcodes and body class to show or hide content depending device (phone, tablet, desktop)
 Author: Miguel Manchego
 Author URI: http://miguelmanchego.com
@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require_once('mobile_detect.php');
 $cur_device = new Mobile_Detect();
 
-function wpds_showon( $atts, $content="" ) {	
+function wpds_show( $atts, $content="" ) {	
 	$att = shortcode_atts( array(
         'on' => 'desktop'        
     ), $atts );	
@@ -45,7 +45,17 @@ function wpds_showon( $atts, $content="" ) {
 		return do_shortcode($content);
 	}
 }
-add_shortcode( 'wpshow', 'wpds_showon' );
+add_shortcode( 'wpshow', 'wpds_show' );
+
+
+function wpds_showon($devices) {
+	global $cur_device;
+	$mostrar = false;
+	$mostrar = wpds_show_device($devices);
+	if($mostrar==true) { 
+		return do_shortcode($content);
+	}
+}
 
 
 function wpds_show_device($devices) {
@@ -66,7 +76,7 @@ function wpds_show_device($devices) {
 	}
 	
 	// If device is tablet
-	if (in_array("phone", $devices)) {
+	if (in_array("tablet", $devices)) {
 		if($cur_device->isTablet()) {
 			$mostrar = true;
 		}		
