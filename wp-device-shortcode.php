@@ -148,6 +148,12 @@ function wpds_show_device($devices) {
 			$mostrar = true;
 		}		
 	}
+	// If browser is IE8
+	if (in_array("ie8", $devices)) {
+		if(isIE8()) {
+			$mostrar = true;
+		}
+	}
 	return $mostrar;
 }
 
@@ -192,5 +198,13 @@ function browser_body_class($classes = '') {
 	if($cur_device->isAndroidOS()) {
 		$classes[] = 'device-android';				
 	}
+	if(isIE8()) {
+		$classes[] = 'browser-ie8';				
+	}
 	return $classes;
+}
+
+function isIE8() {
+	$ie8 = (ereg("MSIE 8", $_SERVER["HTTP_USER_AGENT"])) ? true : false;
+	return $ie8;
 }
