@@ -22,6 +22,7 @@ How to use shortcode?
 * [wpshow on="opera"] Show content only for Opera
 * [wpshow on="firefox"] Show content only for Firefox
 * [wpshow on="ie] Show content only for Internet Explorer
+* [wpshow on="ie8] Show content only for Internet Explorer8
 * [wpshow on="safari] Show content only for Safari
 * Also you can combine options for example [wpshow on="desktop,tablet"] or [wpshow on="chrome,safari"]
 
@@ -41,6 +42,14 @@ if(wpds_showon(array("desktop,tablet"))) {
    // This content will be visible only on desktop and tablets
 } else {
    // This content will be visible only on phones
+}
+```
+That is useful to add a css or javascript only on IE8
+```
+if(wpds_showon(array("ie8"))) {
+   // This content will be visible only on the old IE8 browser
+} else {
+   // This content will be visible only on modern browsers
 }
 ```
 

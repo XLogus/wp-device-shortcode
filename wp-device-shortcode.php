@@ -48,13 +48,10 @@ function wpds_show( $atts, $content="" ) {
 add_shortcode( 'wpshow', 'wpds_show' );
 
 
-function wpds_showon($devices) {
-	global $cur_device;
+function wpds_showon($devices) {	
 	$mostrar = false;
 	$mostrar = wpds_show_device($devices);
-	if($mostrar==true) { 
-		return do_shortcode($content);
-	}
+	return $mostrar;
 }
 
 
